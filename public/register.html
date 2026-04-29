@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Growing Together - Register</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+  <div class="max-w-5xl w-full bg-white rounded-3xl shadow-xl overflow-hidden grid md:grid-cols-2">
+
+    <!-- Left Side -->
+    <div class="p-10 bg-white flex flex-col">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="w-10 h-10 bg-green-100 rounded-2xl flex items-center justify-center">
+          <i class="fa-solid fa-seedling text-green-600 text-3xl"></i>
+        </div>
+        <h1 class="text-3xl font-bold text-green-700">Growing Together</h1>
+      </div>
+
+      <p class="text-gray-600 mb-10">
+        Join Cambodia's leading marketplace for<br>
+        agricultural trade and growth.
+      </p>
+
+      <h3 class="font-semibold text-gray-700 mb-4">CHOOSE YOUR ACCOUNT TYPE</h3>
+
+      <!-- Account Types -->
+      <div class="space-y-3">
+        <button onclick="selectType(this, 'farmer')" class="w-full p-4 border-2 border-green-500 bg-green-50 rounded-2xl flex items-center gap-4 text-left active-type role-btn">
+          <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center text-2xl">
+            🌱
+          </div>
+          <div>
+            <span class="font-semibold text-green-700">Register as Farmer</span>
+          </div>
+          <i class="fa-solid fa-check-circle text-green-500 ml-auto text-2xl"></i>
+        </button>
+
+        <button onclick="selectType(this, 'middleman')" class="w-full p-4 border border-gray-200 hover:border-gray-300 rounded-2xl flex items-center gap-4 text-left role-btn">
+          <div class="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center text-2xl">
+            🤝
+          </div>
+          <span class="font-semibold text-gray-700">Register as Middleman</span>
+        </button>
+
+        <button onclick="selectType(this, 'business_owner')" class="w-full p-4 border border-gray-200 hover:border-gray-300 rounded-2xl flex items-center gap-4 text-left role-btn">
+          <div class="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center text-2xl">
+            🛒
+          </div>
+          <span class="font-semibold text-gray-700">Register as Buyer</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Right Side - Registration Form -->
+    <div class="p-10 bg-white">
+      <h2 class="text-3xl font-bold text-gray-800 mb-1">Create Account</h2>
+      <p class="text-gray-500 mb-8">Quick and easy registration to get you trading.</p>
+
+      <form id="registerForm" class="space-y-6">
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-600 mb-1">FULL NAME</label>
+            <div class="relative">
+              <i class="fa-solid fa-user absolute left-4 top-3.5 text-gray-400"></i>
+              <input type="text" id="name" placeholder="John Doe" required
+                     class="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:border-green-500"/>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-600 mb-1">PHONE NUMBER</label>
+            <div class="relative">
+              <i class="fa-solid fa-phone absolute left-4 top-3.5 text-gray-400"></i>
+              <input type="tel" id="phone" placeholder="+855 12 345 678" required
+                     class="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:border-green-500"/>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-600 mb-1">EMAIL (OPTIONAL)</label>
+          <div class="relative">
+            <i class="fa-solid fa-envelope absolute left-4 top-3.5 text-gray-400"></i>
+            <input type="email" id="email" placeholder="john@example.com" 
+                   class="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:border-green-500"/>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-600 mb-1">PASSWORD</label>
+            <div class="relative">
+              <i class="fa-solid fa-lock absolute left-4 top-3.5 text-gray-400"></i>
+              <input type="password" id="password" placeholder="••••••••" required
+                     class="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:border-green-500"/>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-600 mb-1">CONFIRM PASSWORD</label>
+            <div class="relative">
+              <i class="fa-solid fa-lock absolute left-4 top-3.5 text-gray-400"></i>
+              <input type="password" id="confirmPassword" placeholder="••••••••" required
+                     class="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:border-green-500"/>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit"
+                class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 rounded-2xl flex items-center justify-center gap-2 text-lg transition">
+          <i class="fa-solid fa-user-plus"></i>
+          Register
+        </button>
+      </form>
+
+      <div class="my-6 text-center text-gray-400 text-sm">OR CONTINUE WITH</div>
+
+      <div class="grid grid-cols-2 gap-4">
+        <button class="flex items-center justify-center gap-3 border border-gray-200 hover:border-gray-300 py-3 rounded-2xl transition">
+          <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" class="h-5"/>
+          <span class="font-medium text-gray-700">Google</span>
+        </button>
+        <button class="flex items-center justify-center gap-3 border border-gray-200 hover:border-gray-300 py-3 rounded-2xl transition">
+          <i class="fa-brands fa-facebook text-blue-600 text-2xl"></i>
+          <span class="font-medium text-gray-700">Facebook</span>
+        </button>
+      </div>
+
+      <p class="text-center text-sm text-gray-500 mt-8">
+        ALREADY HAVE AN ACCOUNT? 
+        <a href="login.html" class="text-green-600 font-semibold hover:underline">LOGIN</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-3"></div>
+
+  <script>
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      const bgColor = type === 'success' ? 'bg-green-600' : 'bg-red-600';
+      const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+      toast.className = `${bgColor} text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 transform transition-all duration-300 translate-x-full opacity-0`;
+      toast.innerHTML = `<i class="fa-solid ${icon} text-xl"></i><span class="font-medium">${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => toast.classList.remove('translate-x-full', 'opacity-0'), 10);
+      setTimeout(() => {
+        toast.classList.add('translate-x-full', 'opacity-0');
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    }
+
+    let selectedRole = 'farmer';
+
+    function selectType(btn, role) {
+      document.querySelectorAll('.role-btn').forEach(b => {
+        b.classList.remove('border-2', 'border-green-500', 'bg-green-50', 'active-type');
+        b.classList.add('border', 'border-gray-200');
+        const icon = b.querySelector('.fa-check-circle');
+        if (icon) icon.remove();
+        const text = b.querySelector('span');
+        text.classList.remove('text-green-700');
+        text.classList.add('text-gray-700');
+      });
+      
+      btn.classList.add('border-2', 'border-green-500', 'bg-green-50', 'active-type');
+      btn.classList.remove('border', 'border-gray-200');
+      const text = btn.querySelector('span');
+      text.classList.remove('text-gray-700');
+      text.classList.add('text-green-700');
+      
+      const checkIcon = document.createElement('i');
+      checkIcon.className = 'fa-solid fa-check-circle text-green-500 ml-auto text-2xl';
+      btn.appendChild(checkIcon);
+      
+      selectedRole = role;
+    }
+
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      try {
+        const response = await fetch('http://localhost:5001/api/v1/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, phone, email, password, confirmPassword, role: selectedRole })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          showToast('Account created! Sending verification code...', 'success');
+          localStorage.setItem('pendingPhone', phone);
+          setTimeout(() => {
+            window.location.href = 'OTP_Verification.html';
+          }, 2000);
+        } else {
+          showToast(data.message, 'error');
+        }
+      } catch (err) {
+        showToast('An error occurred during registration.', 'error');
+      }
+    });
+  </script>
+</body>
+</html>

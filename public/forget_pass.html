@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Growing Together - Forgot Password</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+  <div class="max-w-md w-full bg-white rounded-3xl shadow-xl overflow-hidden">
+
+    <!-- Header -->
+    <div class="p-10 border-b">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 bg-green-100 rounded-2xl flex items-center justify-center">
+          <i class="fa-solid fa-seedling text-green-600 text-3xl"></i>
+        </div>
+        <h1 class="text-3xl font-bold text-green-700">Growing Together</h1>
+      </div>
+      
+      <h2 class="text-2xl font-bold text-gray-800">Forgot Password?</h2>
+      <p class="text-gray-500 mt-2">
+        No worries! We'll send you a link to reset your password.
+      </p>
+    </div>
+
+    <!-- Form -->
+    <div class="p-10">
+      <form id="forgotForm" class="space-y-6">
+        <div>
+          <label class="block text-sm font-medium text-gray-600 mb-1">
+            PHONE NUMBER
+          </label>
+          <div class="relative">
+            <i class="fa-solid fa-phone absolute left-4 top-3.5 text-gray-400"></i>
+            <input 
+              id="phone"
+              type="text" 
+              placeholder="+855 12 345 678"
+              required
+              class="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:border-green-500 transition"
+            />
+          </div>
+          <p class="text-xs text-gray-500 mt-1.5">
+            We'll send a 6-digit reset code via SMS to your phone.
+          </p>
+        </div>
+
+        <button 
+          type="submit"
+          class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 rounded-2xl flex items-center justify-center gap-2 text-lg transition">
+          <i class="fa-solid fa-paper-plane"></i>
+          Send Reset Code
+        </button>
+      </form>
+
+      <!-- Back to Login -->
+      <div class="text-center mt-8">
+        <a href="login.html" 
+           class="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-medium">
+          <i class="fa-solid fa-arrow-left"></i>
+          Back to Login
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="p-6 border-t text-center text-sm text-gray-500">
+      Remember your password? 
+      <a href="login.html" class="text-green-600 font-semibold hover:underline">Sign in</a>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-3"></div>
+
+  <script>
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      const bgColor = type === 'success' ? 'bg-green-600' : 'bg-red-600';
+      const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+      toast.className = `${bgColor} text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 transform transition-all duration-300 translate-x-full opacity-0`;
+      toast.innerHTML = `<i class="fa-solid ${icon} text-xl"></i><span class="font-medium">${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => toast.classList.remove('translate-x-full', 'opacity-0'), 10);
+      setTimeout(() => {
+        toast.classList.add('translate-x-full', 'opacity-0');
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    }
+
+    document.getElementById('forgotForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const phone = document.getElementById('phone').value;
+
+      try {
+        const response = await fetch('http://localhost:5001/api/v1/auth/forgot-password', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ phone })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          showToast('Code sent successfully!', 'success');
+          localStorage.setItem('pendingResetPhone', phone);
+          setTimeout(() => {
+            window.location.href = 'Reset_Password.html';
+          }, 2000);
+        } else {
+          showToast(data.message, 'error');
+        }
+      } catch (err) {
+        showToast('An error occurred. Please try again.', 'error');
+      }
+    });
+  </script>
+</body>
+</html>

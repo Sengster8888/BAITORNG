@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Growing Together - OTP Verification</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+    }
+    .otp-input {
+      width: 52px;
+      height: 52px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 600;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      transition: all 0.2s;
+    }
+    .otp-input:focus {
+      border-color: #16a34a;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+  <div class="max-w-md w-full bg-white rounded-3xl shadow-xl overflow-hidden">
+
+    <!-- Header -->
+    <div class="p-10 border-b text-center">
+      <div class="flex items-center justify-center gap-3 mb-6">
+        <div class="w-10 h-10 bg-green-100 rounded-2xl flex items-center justify-center">
+          <i class="fa-solid fa-seedling text-green-600 text-3xl"></i>
+        </div>
+        <h1 class="text-3xl font-bold text-green-700">Growing Together</h1>
+      </div>
+      
+      <h2 class="text-2xl font-bold text-gray-800">Verify OTP</h2>
+      <p class="text-gray-500 mt-2">
+        We sent a 6-digit code to<br>
+        <span id="displayPhone" class="font-medium text-green-600">012 345 678</span>
+      </p>
+    </div>
+
+    <!-- Form -->
+    <div class="p-10">
+      <form id="otpForm" class="space-y-8">
+        <!-- OTP Inputs -->
+        <div class="flex justify-center gap-3" id="otpContainer">
+          <input type="text" maxlength="1" class="otp-input" onkeyup="moveFocus(this, 1)" id="otp1" required>
+          <input type="text" maxlength="1" class="otp-input" onkeyup="moveFocus(this, 2)" id="otp2" required>
+          <input type="text" maxlength="1" class="otp-input" onkeyup="moveFocus(this, 3)" id="otp3" required>
+          <input type="text" maxlength="1" class="otp-input" onkeyup="moveFocus(this, 4)" id="otp4" required>
+          <input type="text" maxlength="1" class="otp-input" onkeyup="moveFocus(this, 5)" id="otp5" required>
+          <input type="text" maxlength="1" class="otp-input" onkeyup="moveFocus(this, 6)" id="otp6" required>
+        </div>
+
+        <button 
+          type="submit"
+          class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 rounded-2xl flex items-center justify-center gap-2 text-lg transition">
+          Verify OTP
+        </button>
+      </form>
+
+      <!-- Resend OTP -->
+      <div class="text-center mt-6">
+        <p class="text-gray-500 text-sm">
+          Didn't receive the code? 
+          <button onclick="resendOTP()" 
+                  class="text-green-600 hover:text-green-700 font-medium" id="resendBtn">
+            Resend OTP
+          </button>
+        </p>
+        <p class="text-xs text-gray-400 mt-1" id="timer">00:30</p>
+      </div>
+
+      <!-- Back to Login -->
+      <div class="text-center mt-8">
+        <a href="login.html" 
+           class="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-medium">
+          <i class="fa-solid fa-arrow-left"></i>
+          Back to Login
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-3"></div>
+
+  <script>
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      const bgColor = type === 'success' ? 'bg-green-600' : 'bg-red-600';
+      const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+      toast.className = `${bgColor} text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 transform transition-all duration-300 translate-x-full opacity-0`;
+      toast.innerHTML = `<i class="fa-solid ${icon} text-xl"></i><span class="font-medium">${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => toast.classList.remove('translate-x-full', 'opacity-0'), 10);
+      setTimeout(() => {
+        toast.classList.add('translate-x-full', 'opacity-0');
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    }
+
+    const phone = localStorage.getItem('pendingPhone') || 'your phone';
+    document.getElementById('displayPhone').textContent = phone;
+
+    // Auto-focus next input
+    function moveFocus(current, index) {
+      if (current.value.length === 1) {
+        const next = document.getElementById(`otp${index + 1}`);
+        if (next) next.focus();
+      } else if (current.value.length === 0) {
+        const prev = document.getElementById(`otp${index - 1}`);
+        if (prev) prev.focus();
+      }
+    }
+
+    document.getElementById('otpForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const otp = Array.from({length: 6}, (_, i) => document.getElementById(`otp${i+1}`).value).join('');
+      
+      if (otp.length !== 6) {
+        showToast('Please enter all 6 digits.', 'error');
+        return;
+      }
+
+      try {
+        const response = await fetch('http://localhost:5001/api/v1/auth/verify-phone', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ phone, otp })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          showToast('Verification successful! Redirecting to login...', 'success');
+          localStorage.removeItem('pendingPhone');
+          setTimeout(() => {
+            window.location.href = 'login.html';
+          }, 2000);
+        } else {
+          showToast(data.message, 'error');
+        }
+      } catch (err) {
+        showToast('An error occurred during verification.', 'error');
+      }
+    });
+
+    // Resend OTP with countdown
+    let timeLeft = 30;
+    const timerEl = document.getElementById('timer');
+    const resendBtn = document.getElementById('resendBtn');
+
+    function startTimer() {
+      timeLeft = 30;
+      resendBtn.disabled = true;
+      resendBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+      const timer = setInterval(() => {
+        timeLeft--;
+        timerEl.textContent = `00:${timeLeft < 10 ? '0' : ''}${timeLeft}`;
+        
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          resendBtn.disabled = false;
+          resendBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+          timerEl.textContent = '';
+        }
+      }, 1000);
+    }
+
+    async function resendOTP() {
+      try {
+        const response = await fetch('http://localhost:5001/api/v1/auth/forgot-password', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ phone })
+        });
+        const data = await response.json();
+        showToast(data.message, 'success');
+        startTimer();
+      } catch (err) {
+        showToast('Failed to resend OTP', 'error');
+      }
+    }
+
+    // Initialize timer on load
+    window.onload = startTimer;
+
+    // Allow pasting full OTP
+    document.getElementById('otpContainer').addEventListener('paste', (e) => {
+      const pasteData = e.clipboardData.getData('text').trim();
+      if (pasteData.length === 6 && /^\d{6}$/.test(pasteData)) {
+        for (let i = 0; i < 6; i++) {
+          document.getElementById(`otp${i+1}`).value = pasteData[i];
+        }
+        document.getElementById('otpForm').dispatchEvent(new Event('submit'));
+      }
+    });
+  </script>
+</body>
+</html>

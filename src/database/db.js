@@ -1,14 +1,6 @@
-const mysql = require('mysql2/promise');
-const config = require('../config/env');
+const knex = require('knex');
+const knexConfig = require('../../knexfile');
 
-const pool = mysql.createPool({
-    host: config.DB_HOST,
-    user: config.DB_USER,
-    password: config.DB_PASSWORD,
-    database: config.DB_NAME,
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0
-});
+const db = knex(knexConfig.development);
 
-module.exports = pool;
+module.exports = db;

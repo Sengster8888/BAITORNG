@@ -5,9 +5,8 @@ const pool = require('./database/db');
 const startServer = async () => {
     try {
         // Test database connection
-        const connection = await pool.getConnection();
-        console.log('Connected to MySQL database');
-        connection.release();
+        await pool.raw('SELECT 1');
+        console.log('Connected to PostgreSQL database');
 
         app.listen(config.PORT, () => {
             console.log(`Server is running on port ${config.PORT} in ${config.NODE_ENV} mode`);
