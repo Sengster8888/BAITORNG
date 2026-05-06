@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Inter:wght@400;500;600;700&family=Kantumruy+Pro:wght@500;600;700&family=Poppins:wght@500;600;700&display=swap");
+
+@import "tailwindcss" source(none);
+@source '../**/*.{js,jsx}';
+@import "tw-animate-css";
+
+@import "./theme.css";
+
+@theme {
+  --font-heading: var(--font-heading-family);
+  --font-body: var(--font-body-family);
+}
+
+@layer base {
+  :root {
+    --font-heading-family: "Kantumruy Pro", "Noto Sans Khmer", sans-serif;
+    --font-body-family: "Battambang", "Noto Sans Khmer", sans-serif;
+
+    --type-h1-size: clamp(2rem, 3.2vw, 3rem);
+    --type-h1-line: 1.2;
+    --type-h1-weight: 700;
+
+    --type-h2-size: clamp(1.5rem, 2.2vw, 2.125rem);
+    --type-h2-line: 1.3;
+    --type-h2-weight: 600;
+
+    --type-h3-size: clamp(1.125rem, 1.35vw, 1.375rem);
+    --type-h3-line: 1.35;
+    --type-h3-weight: 600;
+
+    --type-body-size: 1rem;
+    --type-body-line: 1.65;
+    --type-body-weight: 400;
+
+    --type-small-size: 0.875rem;
+    --type-small-line: 1.45;
+    --type-small-weight: 500;
+  }
+
+  html:lang(km) {
+    --font-heading-family: "Kantumruy Pro", "Noto Sans Khmer", sans-serif;
+    --font-body-family: "Battambang", "Noto Sans Khmer", sans-serif;
+  }
+
+  html:lang(en) {
+    --font-heading-family:
+      "Poppins", "Inter", "Segoe UI", system-ui, sans-serif;
+    --font-body-family: "Inter", "Segoe UI", system-ui, sans-serif;
+
+    --type-h1-size: clamp(2.25rem, 3.4vw, 3.25rem);
+    --type-h2-size: clamp(1.625rem, 2.3vw, 2.25rem);
+    --type-h3-size: clamp(1.125rem, 1.45vw, 1.5rem);
+    --type-h1-weight: 700;
+    --type-h2-weight: 600;
+    --type-h3-weight: 500;
+    --type-body-weight: 400;
+    --type-body-line: 1.6;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased transition-colors duration-300;
+    font-family: var(--font-body-family);
+    font-size: var(--type-body-size);
+    font-weight: var(--type-body-weight);
+    line-height: var(--type-body-line);
+    font-optical-sizing: auto;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    color: inherit;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-family: var(--font-heading-family);
+    font-size: var(--type-h1-size);
+    line-height: var(--type-h1-line);
+    font-weight: var(--type-h1-weight);
+    letter-spacing: -0.015em;
+  }
+
+  h2 {
+    font-family: var(--font-heading-family);
+    font-size: var(--type-h2-size);
+    line-height: var(--type-h2-line);
+    font-weight: var(--type-h2-weight);
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-family: var(--font-heading-family);
+    font-size: var(--type-h3-size);
+    line-height: var(--type-h3-line);
+    font-weight: var(--type-h3-weight);
+  }
+
+  p,
+  li,
+  span,
+  input,
+  textarea,
+  select,
+  button,
+  label {
+    font-family: var(--font-body-family);
+  }
+
+  p {
+    margin: 0;
+    font-size: var(--type-body-size);
+    line-height: var(--type-body-line);
+  }
+
+  small {
+    font-size: var(--type-small-size);
+    line-height: var(--type-small-line);
+    font-weight: var(--type-small-weight);
+  }
+
+  section + section {
+    margin-top: clamp(2rem, 2.5vw, 3rem);
+  }
+}
+
+@layer components {
+  .designer-label {
+    @apply text-gray-600 pl-1;
+    font-size: var(--type-small-size);
+    line-height: var(--type-small-line);
+    font-weight: var(--type-small-weight);
+  }
+
+  html:lang(en) .designer-label {
+    @apply text-gray-500 uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .designer-heading {
+    font-family: var(--font-heading-family);
+    font-size: var(--type-h2-size);
+    line-height: var(--type-h2-line);
+    font-weight: var(--type-h2-weight);
+    letter-spacing: -0.01em;
+  }
+
+  html:lang(en) .designer-heading {
+    letter-spacing: -0.02em;
+  }
+
+  .designer-footer-text {
+    @apply text-gray-500;
+    font-size: var(--type-small-size);
+    line-height: var(--type-small-line);
+    font-weight: var(--type-small-weight);
+  }
+
+  html:lang(en) .designer-footer-text {
+    @apply text-gray-400 uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .designer-role-title {
+    font-family: var(--font-heading-family);
+    font-size: var(--type-h3-size);
+    line-height: var(--type-h3-line);
+    font-weight: var(--type-h3-weight);
+  }
+
+  html:lang(en) .designer-role-title {
+    letter-spacing: 0;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Force Khmer Font */
+  .font-kantumruy {
+    font-family: "Kantumruy Pro", "Noto Sans Khmer", sans-serif !important;
+  }
+}
