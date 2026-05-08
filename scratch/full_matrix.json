@@ -1,0 +1,2452 @@
+{
+  "Phnom Penh": [
+    {
+      "province": "Kandal",
+      "distanceKm": 11
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 55
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 58
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 81
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 95
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 102
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 110
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 136
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 160
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 169
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 172
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 194
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 195
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 231
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 265
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 290
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 308
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 314
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 318
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 331
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 364
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 388
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 411
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 412
+    }
+  ],
+  "Kandal": [
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 11
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 50
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 59
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 72
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 100
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 112
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 114
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 129
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 162
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 165
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 171
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 200
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 204
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 228
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 269
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 301
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 315
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 324
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 328
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 332
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 371
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 396
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 416
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 422
+    }
+  ],
+  "Takeo": [
+    {
+      "province": "Kandal",
+      "distanceKm": 72
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 72
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 81
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 96
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 99
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 100
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 140
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 169
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 174
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 176
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 179
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 240
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 245
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 260
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 266
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 352
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 364
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 386
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 388
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 392
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 394
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 436
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 476
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 484
+    }
+  ],
+  "Kampong Speu": [
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 58
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 59
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 72
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 109
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 112
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 129
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 139
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 149
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 166
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 171
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 178
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 182
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 182
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 211
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 248
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 280
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 291
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 325
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 334
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 349
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 364
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 389
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 404
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 460
+    }
+  ],
+  "Kampong Chhnang": [
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 71
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 102
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 109
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 112
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 114
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 114
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 140
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 142
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 176
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 186
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 189
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 221
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 225
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 230
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 240
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 245
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 250
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 251
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 274
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 291
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 294
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 310
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 345
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 375
+    }
+  ],
+  "Pursat": [
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 109
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 116
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 125
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 135
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 171
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 180
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 182
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 194
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 194
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 204
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 222
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 229
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 236
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 241
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 245
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 251
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 269
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 272
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 285
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 290
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 311
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 326
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 445
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 448
+    }
+  ],
+  "Battambang": [
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 74
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 89
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 95
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 125
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 156
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 209
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 230
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 235
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 259
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 291
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 318
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 328
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 342
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 346
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 364
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 365
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 371
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 374
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 379
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 390
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 394
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 451
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 519
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 549
+    }
+  ],
+  "Banteay Meanchey": [
+    {
+      "province": "Battambang",
+      "distanceKm": 74
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 111
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 114
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 122
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 194
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 272
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 274
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 286
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 294
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 364
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 388
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 396
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 402
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 405
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 416
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 431
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 432
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 436
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 439
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 448
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 468
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 518
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 542
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 592
+    }
+  ],
+  "Siem Reap": [
+    {
+      "province": "Battambang",
+      "distanceKm": 95
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 116
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 122
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 122
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 164
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 168
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 184
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 189
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 270
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 280
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 288
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 289
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 290
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 301
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 316
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 318
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 329
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 352
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 382
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 388
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 405
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 412
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 426
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 470
+    }
+  ],
+  "Oddar Meanchey": [
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 111
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 122
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 156
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 204
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 222
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 236
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 276
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 310
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 345
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 364
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 401
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 404
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 412
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 412
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 422
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 429
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 449
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 472
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 476
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 494
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 508
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 525
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 531
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 552
+    }
+  ],
+  "Preah Vihear": [
+    {
+      "province": "Stung Treng",
+      "distanceKm": 141
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 154
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 164
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 204
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 221
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 229
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 232
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 259
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 260
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 271
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 272
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 280
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 314
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 324
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 328
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 334
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 348
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 355
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 392
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 396
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 408
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 460
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 471
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 484
+    }
+  ],
+  "Kampong Thom": [
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 71
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 125
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 135
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 151
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 154
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 155
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 160
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 168
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 171
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 181
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 182
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 185
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 235
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 240
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 259
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 276
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 286
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 301
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 310
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 311
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 314
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 316
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 320
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 344
+    }
+  ],
+  "Kampong Cham": [
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 29
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 75
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 95
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 100
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 100
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 114
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 125
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 136
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 149
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 169
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 222
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 222
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 244
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 260
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 262
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 264
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 289
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 316
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 326
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 341
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 342
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 401
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 402
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 406
+    }
+  ],
+  "Tboung Khmum": [
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 29
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 75
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 92
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 110
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 112
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 118
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 142
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 151
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 166
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 174
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 222
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 228
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 251
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 271
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 271
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 280
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 310
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 316
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 340
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 366
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 371
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 429
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 431
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 434
+    }
+  ],
+  "Prey Veng": [
+    {
+      "province": "Kandal",
+      "distanceKm": 50
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 55
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 75
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 75
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 86
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 100
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 109
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 140
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 168
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 181
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 196
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 199
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 241
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 272
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 288
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 298
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 319
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 328
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 329
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 365
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 385
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 416
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 432
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 449
+    }
+  ],
+  "Svay Rieng": [
+    {
+      "province": "Prey Veng",
+      "distanceKm": 86
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 118
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 129
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 136
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 136
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 140
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 182
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 196
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 221
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 225
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 231
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 259
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 269
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 318
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 326
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 340
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 391
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 396
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 401
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 412
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 451
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 500
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 518
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 531
+    }
+  ],
+  "Kratie": [
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 92
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 100
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 145
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 155
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 160
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 168
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 186
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 195
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 196
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 200
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 218
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 232
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 248
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 266
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 285
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 318
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 362
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 362
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 390
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 412
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 425
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 429
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 439
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 465
+    }
+  ],
+  "Stung Treng": [
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 140
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 141
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 145
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 185
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 222
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 222
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 228
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 250
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 288
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 298
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 308
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 311
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 315
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 340
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 345
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 349
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 379
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 388
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 405
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 465
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 475
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 480
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 485
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 521
+    }
+  ],
+  "Ratanakiri": [
+    {
+      "province": "Stung Treng",
+      "distanceKm": 140
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 180
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 218
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 271
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 310
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 316
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 316
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 375
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 385
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 401
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 411
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 416
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 426
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 448
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 460
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 472
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 484
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 519
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 542
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 579
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 580
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 605
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 618
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 638
+    }
+  ],
+  "Mondulkiri": [
+    {
+      "province": "Kratie",
+      "distanceKm": 160
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 180
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 222
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 222
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 244
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 269
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 288
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 314
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 331
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 332
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 345
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 355
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 386
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 389
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 445
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 470
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 480
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 485
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 549
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 552
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 560
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 584
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 592
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 625
+    }
+  ],
+  "Kampot": [
+    {
+      "province": "Kep",
+      "distanceKm": 22
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 90
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 99
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 129
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 162
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 169
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 199
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 216
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 231
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 240
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 262
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 271
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 272
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 310
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 362
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 374
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 381
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 388
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 448
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 460
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 475
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 485
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 508
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 579
+    }
+  ],
+  "Kep": [
+    {
+      "province": "Kampot",
+      "distanceKm": 22
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 96
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 109
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 139
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 165
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 172
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 196
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 221
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 239
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 251
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 264
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 271
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 290
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 320
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 362
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 394
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 402
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 405
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 468
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 471
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 480
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 480
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 525
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 580
+    }
+  ],
+  "Preah Sihanouk": [
+    {
+      "province": "Kampot",
+      "distanceKm": 90
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 109
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 155
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 178
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 179
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 228
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 231
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 269
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 272
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 274
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 318
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 326
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 332
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 340
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 344
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 346
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 382
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 416
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 425
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 484
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 494
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 521
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 560
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 638
+    }
+  ],
+  "Koh Kong": [
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 155
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 180
+    },
+    {
+      "province": "Pailin",
+      "distanceKm": 180
+    },
+    {
+      "province": "Battambang",
+      "distanceKm": 209
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 211
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 216
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 239
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 245
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 260
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 265
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 269
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 270
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 274
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 301
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 319
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 341
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 364
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 366
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 391
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 408
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 429
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 485
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 584
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 618
+    }
+  ],
+  "Pailin": [
+    {
+      "province": "Battambang",
+      "distanceKm": 89
+    },
+    {
+      "province": "Banteay Meanchey",
+      "distanceKm": 114
+    },
+    {
+      "province": "Koh Kong",
+      "distanceKm": 180
+    },
+    {
+      "province": "Pursat",
+      "distanceKm": 182
+    },
+    {
+      "province": "Siem Reap",
+      "distanceKm": 184
+    },
+    {
+      "province": "Oddar Meanchey",
+      "distanceKm": 222
+    },
+    {
+      "province": "Kampong Chhnang",
+      "distanceKm": 291
+    },
+    {
+      "province": "Kampong Thom",
+      "distanceKm": 311
+    },
+    {
+      "province": "Kampong Speu",
+      "distanceKm": 325
+    },
+    {
+      "province": "Preah Sihanouk",
+      "distanceKm": 332
+    },
+    {
+      "province": "Preah Vihear",
+      "distanceKm": 348
+    },
+    {
+      "province": "Phnom Penh",
+      "distanceKm": 364
+    },
+    {
+      "province": "Kandal",
+      "distanceKm": 371
+    },
+    {
+      "province": "Kampot",
+      "distanceKm": 381
+    },
+    {
+      "province": "Takeo",
+      "distanceKm": 394
+    },
+    {
+      "province": "Kep",
+      "distanceKm": 402
+    },
+    {
+      "province": "Kampong Cham",
+      "distanceKm": 406
+    },
+    {
+      "province": "Prey Veng",
+      "distanceKm": 416
+    },
+    {
+      "province": "Tboung Khmum",
+      "distanceKm": 434
+    },
+    {
+      "province": "Kratie",
+      "distanceKm": 465
+    },
+    {
+      "province": "Stung Treng",
+      "distanceKm": 465
+    },
+    {
+      "province": "Svay Rieng",
+      "distanceKm": 500
+    },
+    {
+      "province": "Ratanakiri",
+      "distanceKm": 605
+    },
+    {
+      "province": "Mondulkiri",
+      "distanceKm": 625
+    }
+  ]
+}

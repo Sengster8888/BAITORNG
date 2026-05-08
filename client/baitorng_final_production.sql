@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS users (
     username            VARCHAR(80)   UNIQUE,
     email               VARCHAR(150)  UNIQUE,
     email_verified_at   TIMESTAMP     NULL,
-    role                ENUM('farmer','middleman','buyer','business_owner','admin') NOT NULL,
+    role                ENUM('farmer','middleman','buyer','admin') NOT NULL,
     province_id         INT           DEFAULT NULL,
     detailed_location   TEXT,
     profile_photo       VARCHAR(255),
@@ -187,8 +187,8 @@ CREATE TABLE IF NOT EXISTS follows (
     UNIQUE KEY (follower_id, following_id)
 );
 
--- 15. favorites
-CREATE TABLE IF NOT EXISTS favorites (
+-- 15. saved_posts
+CREATE TABLE IF NOT EXISTS saved_posts (
     id          INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_id     INT NOT NULL,
     target_type ENUM('product','demand') NOT NULL,

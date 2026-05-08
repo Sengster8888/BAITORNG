@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaiTorng Admin | Manage Users</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2D6A4F;
+            --primary-light: #40916C;
+            --secondary: #D8F3DC;
+            --accent: #FF9F1C;
+            --bg: #F8FAFC;
+            --sidebar-bg: #1B4332;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --white: #FFFFFF;
+            --border: #E2E8F0;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 0;
+            position: fixed;
+            height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        .logo-container {
+            padding: 0 2rem;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .logo-text {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            list-style: none;
+            flex-grow: 1;
+        }
+
+        .nav-item {
+            padding: 0.8rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: rgba(255,255,255,0.7);
+            font-weight: 500;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background-color: rgba(255,255,255,0.1);
+            color: var(--white);
+            border-left: 4px solid var(--primary-light);
+        }
+
+        .nav-item i {
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            margin-left: 260px;
+            flex-grow: 1;
+            padding: 2rem 3rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .header-title h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .header-title p {
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .admin-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--white);
+            padding: 8px 16px;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+        }
+
+        .admin-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #E2E8F0;
+            overflow: hidden;
+        }
+
+        .admin-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .stat-trend {
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .trend-up { color: var(--success); }
+        .trend-down { color: var(--danger); }
+
+        /* User Table Area */
+        .table-container {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .table-header {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .search-box {
+            position: relative;
+            width: 300px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 15px 10px 40px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            outline: none;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background-color: #F8FAFC;
+        }
+
+        th {
+            text-align: left;
+            padding: 1rem 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background-color: #F8FAFC;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .user-name {
+            font-weight: 600;
+            display: block;
+        }
+
+        .user-email {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .badge-farmer { background: #DCFCE7; color: #15803D; }
+        .badge-buyer { background: #DBEAFE; color: #1E40AF; }
+        .badge-middleman { background: #FEF3C7; color: #92400E; }
+
+        .status-pill {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .dot-active { background-color: var(--success); box-shadow: 0 0 8px var(--success); }
+        .dot-inactive { background-color: var(--danger); }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-muted);
+        }
+
+        .btn-icon:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sidebar { width: 80px; }
+            .logo-text, .nav-item span { display: none; }
+            .main-content { margin-left: 80px; }
+            .nav-item { justify-content: center; padding: 1.2rem 0; }
+        }
+
+    </style>
+    <!-- Simple Icons (Phosphor Icons alternative) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="logo-container">
+            <div class="logo-icon">B</div>
+            <span class="logo-text">BaiTorng</span>
+        </div>
+
+        <ul class="nav-links">
+            <li class="nav-item">
+                <i class="ph ph-squares-four"></i>
+                <span>Dashboard</span>
+            </li>
+            <li class="nav-item active">
+                <i class="ph ph-users"></i>
+                <span>User Management</span>
+            </li>
+            <li class="nav-item">
+                <i class="ph ph-shopping-bag"></i>
+                <span>Products</span>
+            </li>
+            <li class="nav-item">
+                <i class="ph ph-chart-line-up"></i>
+                <span>Demand Requests</span>
+            </li>
+            <li class="nav-item">
+                <i class="ph ph-seal-check"></i>
+                <span>Verifications</span>
+            </li>
+            <li class="nav-item">
+                <i class="ph ph-warning-circle"></i>
+                <span>Reports</span>
+            </li>
+        </ul>
+
+        <div class="nav-links" style="margin-top: auto;">
+            <li class="nav-item">
+                <i class="ph ph-gear"></i>
+                <span>Settings</span>
+            </li>
+            <li class="nav-item">
+                <i class="ph ph-sign-out"></i>
+                <span>Logout</span>
+            </li>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header>
+            <div class="header-title">
+                <h1>User Management</h1>
+                <p>Manage farmers, middlemen, and buyers on the platform.</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="admin-avatar">
+                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=2D6A4F&color=fff" alt="Admin">
+                </div>
+                <span class="admin-name">Admin Socheat</span>
+                <i class="ph ph-caret-down"></i>
+            </div>
+        </header>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-label">Total Users</span>
+                <span class="stat-value">1,284</span>
+                <span class="stat-trend trend-up">
+                    <i class="ph ph-trend-up"></i> +12% this month
+                </span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Pending Verification</span>
+                <span class="stat-value">42</span>
+                <span class="stat-trend trend-down">
+                    <i class="ph ph-clock"></i> 8 urgent
+                </span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Active Farmers</span>
+                <span class="stat-value">856</span>
+                <span class="stat-trend trend-up">
+                    <i class="ph ph-trend-up"></i> +5.4%
+                </span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Total Reports</span>
+                <span class="stat-value">14</span>
+                <span class="stat-trend trend-down">
+                    <i class="ph ph-warning"></i> 3 unresolved
+                </span>
+            </div>
+        </section>
+
+        <section class="table-container">
+            <div class="table-header">
+                <div class="search-box">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" placeholder="Search by name, phone, or email...">
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn-icon" title="Filter"><i class="ph ph-funnel"></i></button>
+                    <button class="btn-icon" title="Export"><i class="ph ph-export"></i></button>
+                </div>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Role</th>
+                        <th>Province</th>
+                        <th>Verification</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="user-info">
+                                <div class="user-avatar">SB</div>
+                                <div>
+                                    <span class="user-name">Seng Borith</span>
+                                    <span class="user-email">borith.s@gmail.com</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="badge badge-farmer">Farmer</span></td>
+                        <td>Battambang</td>
+                        <td><span class="status-pill"><i class="ph ph-check-circle" style="color: var(--success);"></i> Verified</span></td>
+                        <td><div class="status-pill"><span class="dot dot-active"></span> Active</div></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-icon" title="Edit"><i class="ph ph-pencil-simple"></i></button>
+                                <button class="btn-icon" title="View Details"><i class="ph ph-eye"></i></button>
+                                <button class="btn-icon" title="Ban"><i class="ph ph-prohibit"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="user-info">
+                                <div class="user-avatar" style="background: #E0E7FF; color: #4338CA;">KC</div>
+                                <div>
+                                    <span class="user-name">Keo Channary</span>
+                                    <span class="user-email">channary.k@outlook.com</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="badge badge-middleman">Middleman</span></td>
+                        <td>Kandal</td>
+                        <td><span class="status-pill"><i class="ph ph-clock" style="color: var(--warning);"></i> Pending</span></td>
+                        <td><div class="status-pill"><span class="dot dot-active"></span> Active</div></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-icon" title="Edit"><i class="ph ph-pencil-simple"></i></button>
+                                <button class="btn-icon" title="View Details"><i class="ph ph-eye"></i></button>
+                                <button class="btn-icon" title="Ban"><i class="ph ph-prohibit"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="user-info">
+                                <div class="user-avatar" style="background: #FEE2E2; color: #B91C1C;">PV</div>
+                                <div>
+                                    <span class="user-name">Phnom Vuthy</span>
+                                    <span class="user-email">vuthy_88@yahoo.com</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="badge badge-buyer">Buyer</span></td>
+                        <td>Phnom Penh</td>
+                        <td><span class="status-pill"><i class="ph ph-check-circle" style="color: var(--success);"></i> Verified</span></td>
+                        <td><div class="status-pill"><span class="dot dot-inactive"></span> Banned</div></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-icon" title="Edit"><i class="ph ph-pencil-simple"></i></button>
+                                <button class="btn-icon" title="View Details"><i class="ph ph-eye"></i></button>
+                                <button class="btn-icon" title="Unban"><i class="ph ph-check-square"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="user-info">
+                                <div class="user-avatar" style="background: #DCFCE7; color: #15803D;">ST</div>
+                                <div>
+                                    <span class="user-name">Sok Thy</span>
+                                    <span class="user-email">thy.sok@gmail.com</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="badge badge-farmer">Farmer</span></td>
+                        <td>Pursat</td>
+                        <td><span class="status-pill"><i class="ph ph-check-circle" style="color: var(--success);"></i> Verified</span></td>
+                        <td><div class="status-pill"><span class="dot dot-active"></span> Active</div></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-icon" title="Edit"><i class="ph ph-pencil-simple"></i></button>
+                                <button class="btn-icon" title="View Details"><i class="ph ph-eye"></i></button>
+                                <button class="btn-icon" title="Ban"><i class="ph ph-prohibit"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="table-header" style="justify-content: flex-end; padding: 1rem;">
+                <div style="display: flex; align-items: center; gap: 15px; font-size: 0.9rem; color: var(--text-muted);">
+                    <span>Showing 1-4 of 1,284 users</span>
+                    <div style="display: flex; gap: 5px;">
+                        <button class="btn-icon" disabled><i class="ph ph-caret-left"></i></button>
+                        <button class="btn-icon"><i class="ph ph-caret-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
