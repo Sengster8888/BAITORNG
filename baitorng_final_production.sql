@@ -167,12 +167,14 @@ CREATE TABLE IF NOT EXISTS notifications (
     id         INT  NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_id    INT  NOT NULL,
     match_id   INT,
+    announcement_id INT,
     type       ENUM('new_match','demand_near_you','product_near_you','system') NOT NULL,
     message    TEXT NOT NULL,
     is_read    BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (match_id) REFERENCES matches(id) ON DELETE SET NULL
+    FOREIGN KEY (match_id) REFERENCES matches(id) ON DELETE SET NULL,
+    FOREIGN KEY (announcement_id) REFERENCES announcements(id) ON DELETE SET NULL
 );
 
 -- 14. follows
@@ -270,6 +272,19 @@ CREATE TABLE IF NOT EXISTS province_adjacency (
     PRIMARY KEY (province_id, adjacent_id),
     FOREIGN KEY (province_id) REFERENCES provinces(id),
     FOREIGN KEY (adjacent_id) REFERENCES provinces(id)
+);
+
+-- 23. announcements
+CREATE TABLE IF NOT EXISTS announcements (
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    admin_id    INT NOT NULL,
+    title       VARCHAR(255) NOT NULL,
+    message     TEXT NOT NULL,
+    audience    ENUM('all', 'farmer', 'middleman', 'buyer', 'specific') NOT NULL,
+    type        ENUM('system', 'maintenance', 'promotion', 'safety') DEFAULT 'system',
+    priority    ENUM('normal', 'important', 'urgent') DEFAULT 'normal',
+    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (admin_id) REFERENCES admins(id) ON DELETE CASCADE
 );
 
 -- TRIGGERS
