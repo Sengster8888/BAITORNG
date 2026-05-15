@@ -1,7 +1,6 @@
-[ignoring loop detection]
 -- ================================================================
 -- BAITORNG — Smart Agriculture Marketplace
--- Database Schema — FINAL PRODUCTION VERSION (V7.1.3)
+-- Database Schema — COMBINED PRODUCTION VERSION (V8.0.0)
 -- 2026
 -- ================================================================
 
@@ -31,7 +30,7 @@ CREATE TABLE IF NOT EXISTS users (
     experience          ENUM('lessThan1', '1to3', '3to5', '5to10', 'over10'),
     is_active           BOOLEAN       DEFAULT TRUE,
     is_verified         BOOLEAN       DEFAULT FALSE,
-    listing_limit       INT           DEFAULT 10,
+    listing_slot_limit  INT           DEFAULT 10,
     created_at          TIMESTAMP     DEFAULT CURRENT_TIMESTAMP,
     updated_at          TIMESTAMP     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (province_id) REFERENCES provinces(id) ON DELETE SET NULL
@@ -151,13 +150,15 @@ CREATE TABLE IF NOT EXISTS matches (
     id               INT  NOT NULL AUTO_INCREMENT PRIMARY KEY,
     product_id       INT  NOT NULL,
     demand_id        INT  NOT NULL,
-    distance_km      INT  DEFAULT NULL,
-    match_score      DECIMAL(5,2) DEFAULT 0,
+    match_score      INT DEFAULT 0,
+    province_match   ENUM('same', 'nearby', 'different') NOT NULL,
+    status           ENUM('pending', 'contacted', 'completed', 'expired') DEFAULT 'pending',
     seller_notified  BOOLEAN DEFAULT FALSE,
     buyer_notified   BOOLEAN DEFAULT FALSE,
     seller_dismissed BOOLEAN DEFAULT FALSE,
     buyer_dismissed  BOOLEAN DEFAULT FALSE,
     created_at       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expires_at       TIMESTAMP NULL,
     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
     FOREIGN KEY (demand_id)  REFERENCES demand_requests(id) ON DELETE CASCADE,
     UNIQUE KEY unique_match (product_id, demand_id)
@@ -168,14 +169,12 @@ CREATE TABLE IF NOT EXISTS notifications (
     id         INT  NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_id    INT  NOT NULL,
     match_id   INT,
-    announcement_id INT,
     type       ENUM('new_match','demand_near_you','product_near_you','system') NOT NULL,
     message    TEXT NOT NULL,
     is_read    BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (match_id) REFERENCES matches(id) ON DELETE SET NULL,
-    FOREIGN KEY (announcement_id) REFERENCES announcements(id) ON DELETE SET NULL
+    FOREIGN KEY (match_id) REFERENCES matches(id) ON DELETE SET NULL
 );
 
 -- 14. follows
@@ -189,8 +188,8 @@ CREATE TABLE IF NOT EXISTS follows (
     UNIQUE KEY (follower_id, following_id)
 );
 
--- 15. save post
-CREATE TABLE IF NOT EXISTS save_post ( 
+-- 15. saved_posts (formerly favorites)
+CREATE TABLE IF NOT EXISTS saved_posts (
     id          INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_id     INT NOT NULL,
     target_type ENUM('product','demand') NOT NULL,
@@ -275,29 +274,85 @@ CREATE TABLE IF NOT EXISTS province_adjacency (
     FOREIGN KEY (adjacent_id) REFERENCES provinces(id)
 );
 
--- 23. announcements
-CREATE TABLE IF NOT EXISTS announcements (
-    id          INT AUTO_INCREMENT PRIMARY KEY,
-    admin_id    INT NOT NULL,
-    title       VARCHAR(255) NOT NULL,
-    message     TEXT NOT NULL,
-    audience    ENUM('all', 'farmer', 'middleman', 'buyer', 'specific') NOT NULL,
-    type        ENUM('system', 'maintenance', 'promotion', 'safety') DEFAULT 'system',
-    priority    ENUM('normal', 'important', 'urgent') DEFAULT 'normal',
-    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (admin_id) REFERENCES admins(id) ON DELETE CASCADE
+-- 23. legal_documents
+CREATE TABLE IF NOT EXISTS legal_documents (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  type ENUM ('terms_conditions', 'privacy_policy') NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  content LONGTEXT NOT NULL,
+  version VARCHAR(20) NOT NULL,
+  is_active BOOLEAN DEFAULT true,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
+-- 24. user_legal_acceptances
+CREATE TABLE IF NOT EXISTS user_legal_acceptances (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  legal_document_id INT NOT NULL,
+  accepted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (legal_document_id) REFERENCES legal_documents(id) ON DELETE CASCADE,
+  UNIQUE KEY unique_user_legal_acceptance (user_id, legal_document_id)
+);
+
+-- 25. subscription_plans
+CREATE TABLE IF NOT EXISTS subscription_plans (
+    id                 INT AUTO_INCREMENT PRIMARY KEY,
+    name               VARCHAR(50) NOT NULL UNIQUE, -- e.g., 'Basic', 'Pro', 'Premium'
+    price              DECIMAL(10,2) NOT NULL,      -- e.g., 0.00, 5.00, 15.00
+    duration_days      INT NOT NULL,                -- e.g., 30 for monthly, 365 for yearly
+    listing_slot_limit INT NOT NULL,                -- How many slots they get (e.g., 10, 50, 999)              
+    description        TEXT,
+    is_active          BOOLEAN DEFAULT TRUE,
+    created_at         TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 26. user_subscriptions
+CREATE TABLE IF NOT EXISTS user_subscriptions (
+    id                 INT AUTO_INCREMENT PRIMARY KEY,
+    user_id            INT NOT NULL,
+    plan_id            INT NOT NULL,
+    start_date         TIMESTAMP NOT NULL,
+    end_date           TIMESTAMP NOT NULL,
+    status             ENUM('active', 'expired', 'cancelled') DEFAULT 'active',
+    created_at         TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at         TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (plan_id) REFERENCES subscription_plans(id) ON DELETE RESTRICT
+);
+
+-- 27. payments
+CREATE TABLE IF NOT EXISTS payments (
+    id                 INT AUTO_INCREMENT PRIMARY KEY,
+    user_id            INT NOT NULL,
+    subscription_id    INT NOT NULL,
+    amount             DECIMAL(10,2) NOT NULL,
+    currency           VARCHAR(10) DEFAULT 'USD',    -- Currency code (e.g., USD, KHR)
+    payment_method     VARCHAR(50),                  -- e.g., 'ABA Pay', 'Stripe', 'Cash'
+    transaction_ref    VARCHAR(255) UNIQUE,          -- Reference ID from the payment gateway (e.g. Stripe Session ID)
+    stripe_payment_intent_id VARCHAR(255) UNIQUE,    -- Specific ID for Stripe payment intent
+    stripe_customer_id VARCHAR(255),                 -- Stripe customer identifier
+    receipt_url        VARCHAR(500),                 -- URL to the payment receipt
+    status             ENUM('pending', 'completed', 'failed', 'refunded') DEFAULT 'pending',
+    created_at         TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at         TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (subscription_id) REFERENCES user_subscriptions(id) ON DELETE RESTRICT
+);
+
 
 -- TRIGGERS
 DELIMITER //
 CREATE TRIGGER tr_match_on_product_insert AFTER INSERT ON products FOR EACH ROW
 BEGIN
-    INSERT IGNORE INTO matches (product_id, demand_id, distance_km, match_score)
+    INSERT IGNORE INTO matches (product_id, demand_id, province_match, match_score, expires_at)
     SELECT 
         NEW.id, 
         d.id,
-        IF(d.province_id = NEW.province_id, 0, adj.distance_km),
-        (
+        IF(d.province_id = NEW.province_id, 'same', IF(adj.distance_km IS NOT NULL, 'nearby', 'different')),
+        CAST((
             -- 1. Location Score (Max 50)
             IF(d.province_id = NEW.province_id, 50, 
                IFNULL(GREATEST(0, 50 * (1 - (adj.distance_km / 300))), 0)
@@ -312,20 +367,44 @@ BEGIN
                ),
                0
             )
-        )
+        ) AS UNSIGNED),
+        DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 3 DAY)
     FROM demand_requests d 
     LEFT JOIN province_adjacency adj ON (adj.province_id = NEW.province_id AND adj.adjacent_id = d.province_id)
-    WHERE d.sub_category_id = NEW.sub_category_id AND d.is_active = TRUE;
+    WHERE d.sub_category_id = NEW.sub_category_id 
+      AND d.is_active = TRUE 
+      AND d.updated_at >= DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 3 DAY);
+END //
+
+CREATE TRIGGER tr_match_on_product_update AFTER UPDATE ON products FOR EACH ROW
+BEGIN
+    IF NEW.updated_at > OLD.updated_at AND NEW.is_active = TRUE THEN
+        INSERT IGNORE INTO matches (product_id, demand_id, province_match, match_score, expires_at)
+        SELECT 
+            NEW.id, 
+            d.id,
+            IF(d.province_id = NEW.province_id, 'same', IF(adj.distance_km IS NOT NULL, 'nearby', 'different')),
+            CAST((
+                IF(d.province_id = NEW.province_id, 50, IFNULL(GREATEST(0, 50 * (1 - (adj.distance_km / 300))), 0)) +
+                IF(NEW.unit = d.unit, (IF(NEW.price_per_unit <= d.target_price, 30, 30 * (d.target_price / NEW.price_per_unit)) + IF(NEW.quantity >= d.quantity_needed, 20, 20 * (NEW.quantity / d.quantity_needed))), 0)
+            ) AS UNSIGNED),
+            DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 3 DAY)
+        FROM demand_requests d 
+        LEFT JOIN province_adjacency adj ON (adj.province_id = NEW.province_id AND adj.adjacent_id = d.province_id)
+        WHERE d.sub_category_id = NEW.sub_category_id 
+          AND d.is_active = TRUE 
+          AND d.updated_at >= DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 3 DAY);
+    END IF;
 END //
 
 CREATE TRIGGER tr_match_on_demand_insert AFTER INSERT ON demand_requests FOR EACH ROW
 BEGIN
-    INSERT IGNORE INTO matches (product_id, demand_id, distance_km, match_score)
+    INSERT IGNORE INTO matches (product_id, demand_id, province_match, match_score, expires_at)
     SELECT 
         p.id, 
         NEW.id,
-        IF(p.province_id = NEW.province_id, 0, adj.distance_km),
-        (
+        IF(p.province_id = NEW.province_id, 'same', IF(adj.distance_km IS NOT NULL, 'nearby', 'different')),
+        CAST((
             -- 1. Location Score (Max 50)
             IF(p.province_id = NEW.province_id, 50, 
                IFNULL(GREATEST(0, 50 * (1 - (adj.distance_km / 300))), 0)
@@ -340,10 +419,34 @@ BEGIN
                ),
                0
             )
-        )
+        ) AS UNSIGNED),
+        DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 3 DAY)
     FROM products p 
     LEFT JOIN province_adjacency adj ON (adj.province_id = NEW.province_id AND adj.adjacent_id = p.province_id)
-    WHERE p.sub_category_id = NEW.sub_category_id AND p.is_active = TRUE;
+    WHERE p.sub_category_id = NEW.sub_category_id 
+      AND p.is_active = TRUE 
+      AND p.updated_at >= DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 3 DAY);
+END //
+
+CREATE TRIGGER tr_match_on_demand_update AFTER UPDATE ON demand_requests FOR EACH ROW
+BEGIN
+    IF NEW.updated_at > OLD.updated_at AND NEW.is_active = TRUE THEN
+        INSERT IGNORE INTO matches (product_id, demand_id, province_match, match_score, expires_at)
+        SELECT 
+            p.id, 
+            NEW.id,
+            IF(p.province_id = NEW.province_id, 'same', IF(adj.distance_km IS NOT NULL, 'nearby', 'different')),
+            CAST((
+                IF(p.province_id = NEW.province_id, 50, IFNULL(GREATEST(0, 50 * (1 - (adj.distance_km / 300))), 0)) +
+                IF(p.unit = NEW.unit, (IF(p.price_per_unit <= NEW.target_price, 30, 30 * (NEW.target_price / p.price_per_unit)) + IF(p.quantity >= NEW.quantity_needed, 20, 20 * (p.quantity / NEW.quantity_needed))), 0)
+            ) AS UNSIGNED),
+            DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 3 DAY)
+        FROM products p 
+        LEFT JOIN province_adjacency adj ON (adj.province_id = NEW.province_id AND adj.adjacent_id = p.province_id)
+        WHERE p.sub_category_id = NEW.sub_category_id 
+          AND p.is_active = TRUE 
+          AND p.updated_at >= DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 3 DAY);
+    END IF;
 END //
 DELIMITER ;
 
@@ -405,3 +508,9 @@ INSERT IGNORE INTO province_adjacency (province_id, adjacent_id, distance_km) VA
 (23, 21, 95), (23, 22, 110), (23, 24, 115), (23, 4, 180), (23, 3, 190), (23, 1, 230), (23, 2, 240), (23, 6, 280), (23, 7, 320), (23, 25, 350),
 (24, 6, 110), (24, 23, 115), (24, 4, 120), (24, 21, 150), (24, 7, 200), (24, 3, 220), (24, 1, 271), (24, 22, 280), (24, 2, 290), (24, 25, 300),
 (25, 7, 70), (25, 8, 120), (25, 6, 140), (25, 9, 170), (25, 10, 190), (25, 12, 250), (25, 11, 300), (25, 24, 320), (25, 23, 350), (25, 5, 380);
+
+-- SUBSCRIPTION PLANS SEEDING
+INSERT IGNORE INTO subscription_plans (name, price, duration_days, listing_slot_limit, description) VALUES
+('Free', 0.00, 36500, 10, 'Basic free tier with standard limits'),
+('Plus', 5.00, 30, 50, 'Enhanced tier with 50 slots for active sellers'),
+('Pro', 15.00, 30, 999, 'Professional tier with unlimited slots (999) for heavy sellers');
